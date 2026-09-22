@@ -20,4 +20,9 @@ You can also try [the experimental native React Compiler support in plugin-react
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 =======
 # react-assignments
->>>>>>> 5fd247aab6e7cdebfa507cd7a597f220c02b46a4
+> > > > > > > Open [link text here](https://users.metropolia.fi/~pettelo/context/) to view it in the browser.
+> > > > > > > Open [link text here](https://users.metropolia.fi/~pettelo/custom-hooks/) to view it in the browser.
+> > > > > > > Open [link text here](https://users.metropolia.fi/~pettelo/forms/) to view it in the browser.
+> > > > > > > Open [link text here](https://users.metropolia.fi/~pettelo/hooks/) to view it in the browser.
+> > > > > > > Open [link text here](https://users.metropolia.fi/~pettelo/wsk-routing/) to view it in the browser.
+> > > > > > > Open [link text here](https://users.metropolia.fi/~pettelo/upload/) to view it in the browser.
