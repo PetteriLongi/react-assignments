@@ -1,6 +1,8 @@
 // src/components/MediaRow.jsx
+import { Link } from "react-router";
+
 const MediaRow = (props) => {
-  const { item, setSelectedItem } = props;
+  const { item } = props;
 
   return (
     // TODO: move <tr> element in foreach from Home.jsx here
@@ -14,7 +16,9 @@ const MediaRow = (props) => {
       <td>{item.filesize}</td>
       <td>{item.media_type}</td>
       <td>
-        <button onClick={() => setSelectedItem(item)}>View</button>
+        <Link to="/single" state={{ item }}>
+          Show
+        </Link>
       </td>
     </tr>
   );
