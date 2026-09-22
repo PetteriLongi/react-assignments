@@ -23,4 +23,4 @@ You can also try [the experimental native React Compiler support in plugin-react
 # react-assignments
 
 > > > > > > > 5fd247aab6e7cdebfa507cd7a597f220c02b46a4
-> > > > > > > Open [link text here](https://users.metropolia.fi/~pettelo/context/) to view it in the browser.
+> > > > > > > Open [link text here](https://users.metropolia.fi/~pettelo/upload/) to view it in the browser.

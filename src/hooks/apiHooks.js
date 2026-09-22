@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import fetchData from "../utils/fetchData";
 
 const useMedia = () => {
@@ -38,7 +37,29 @@ const useMedia = () => {
     getMedia();
   }, []);
 
-  return { mediaArray };
+  const postMedia = async (file, inputs, token) => {
+    const data = {
+      ...file,
+      ...inputs,
+    };
+
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    };
+
+    const loginResult = await fetchData(
+      import.meta.env.VITE_MEDIA_API + "/media",
+      fetchOptions,
+    );
+    return loginResult;
+  };
+
+  return { mediaArray, postMedia };
 };
 
 const useAuthentication = () => {
@@ -98,4 +119,24 @@ const useUser = () => {
   return { getUserByToken, postUser, handleLogout };
 };
 
-export { useMedia, useAuthentication, useUser };
+const useFile = () => {
+  const uploadFile = async (file, token) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const fetchOptions = {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+      body: formData,
+    };
+    const result = await fetchData(
+      import.meta.env.VITE_UPLOAD_SERVER + "/upload",
+      fetchOptions,
+    );
+    return result;
+  };
+
+  return { uploadFile };
+};
+
+export { useMedia, useAuthentication, useUser, useFile };
