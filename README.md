@@ -6,7 +6,7 @@
 > > > > > > > Open [link text here](https://users.metropolia.fi/~pettelo/wsk-routing/) to view wsk routing in the browser.<br />
 > > > > > > > Open [link text here](https://users.metropolia.fi/~pettelo/upload/) to view upload in the browser.<br />
 
-<<<<<<< HEAD
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
