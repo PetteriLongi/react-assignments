@@ -1,14 +1,11 @@
-import { useNavigate } from "react-router";
 import { useEffect } from "react";
-import { useUser } from "../hooks/apiHooks";
+import { useUserContext } from "../hooks/contextHooks";
 
 const Logout = () => {
-  const navigate = useNavigate();
-  const { handleLogout } = useUser();
+  const { handleLogout } = useUserContext();
   useEffect(() => {
     handleLogout();
-    navigate("/login");
-  }, [handleLogout, navigate]);
+  }, [handleLogout]);
 
   return (
     <div>
