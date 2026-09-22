@@ -8,6 +8,7 @@ const Single = () => {
   return (
     <>
       <h2>{item.title}</h2>
+      <p>Owner: {item.username}</p>
       <p>{item.description}</p>
 
       {item.media_type.startsWith("image/") ? (
