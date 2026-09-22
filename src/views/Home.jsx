@@ -1,36 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MediaRow from "../components/MediaRow";
-import fetchData from "../utils/fetchData";
+import { useMedia } from "../hooks/apiHooks";
+import SingleView from "../components/SingleView";
 
 const Home = () => {
-  const [mediaArray, setMediaArray] = useState([]);
-
-  useEffect(() => {
-    const getMedia = async () => {
-      try {
-        const json = await fetchData(import.meta.env.VITE_MEDIA_API + "/media");
-        const newArray = await Promise.all(
-          json.map(async (item) => {
-            const user = await fetchData(
-              import.meta.env.VITE_AUTH_API + "/users/" + item.user_id,
-            );
-            return { ...item, username: user.username };
-          }),
-        );
-        setMediaArray(newArray);
-      } catch (error) {
-        console.log("Error fetching media data:", error);
-      }
-    };
-    getMedia();
-  }, []);
-
-  console.log("mediaArray", mediaArray);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const { mediaArray } = useMedia();
 
   return (
     <>
       <h2>My Media</h2>
 
+      <SingleView item={selectedItem} setSelectedItem={setSelectedItem} />
       <table>
         <thead>
           <tr>
@@ -46,7 +27,11 @@ const Home = () => {
 
         <tbody>
           {mediaArray.map((item) => (
-            <MediaRow key={item.media_id} item={item} />
+            <MediaRow
+              key={item.media_id}
+              item={item}
+              setSelectedItem={setSelectedItem}
+            />
           ))}
         </tbody>
       </table>
