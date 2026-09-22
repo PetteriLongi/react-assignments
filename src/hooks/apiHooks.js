@@ -41,4 +41,61 @@ const useMedia = () => {
   return { mediaArray };
 };
 
-export { useMedia };
+const useAuthentication = () => {
+  const postLogin = async (inputs) => {
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputs),
+    };
+    const loginResult = await fetchData(
+      import.meta.env.VITE_AUTH_API + "/auth/login",
+      fetchOptions,
+    );
+    return loginResult;
+  };
+  return { postLogin };
+};
+
+const useUser = () => {
+  const getUserByToken = async (token) => {
+    const fetchOptions = {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    };
+
+    const userData = await fetchData(
+      import.meta.env.VITE_AUTH_API + "/users/token",
+      fetchOptions,
+    );
+    return userData;
+  };
+
+  const postUser = async (inputs) => {
+    const fetchOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputs),
+    };
+
+    const userData = await fetchData(
+      import.meta.env.VITE_AUTH_API + "/users",
+      fetchOptions,
+    );
+    return userData;
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+  };
+
+  return { getUserByToken, postUser, handleLogout };
+};
+
+export { useMedia, useAuthentication, useUser };
